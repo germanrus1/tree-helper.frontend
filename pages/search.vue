@@ -18,14 +18,13 @@
                 <input type="text" class="form-control" placeholder="Добавить в избранное"
                        aria-label="Input group example" aria-describedby="basic-addon1">
               </div>
-              <img src="https://opt-1088093.ssl.1c-bitrix-cdn.ru/upload/iblock/90a/90ac426482b2c0af95162ebac255fe2a.jpg?153373798664980"
-                   class="card-img-top" alt="Маньчжурский орех">
+              <img v-bind:src="model.img" class="card-img-top" v-bind:alt="model.name">
             </div>
             <div class="card-body">
-              <h5 class="card-title">Маньчжурский орех</h5>
-              <p class="card-text">Оре́х маньчжу́рский, или Орех думбе́йский, — вид листопадных однодомных
-                деревьев или кустарников рода Орех семейства Ореховые.
-              </p>
+              <NuxtLink :to="'/detail/:id' + model.id">
+                <h5 class="card-title">{{model.name}}</h5>
+              </NuxtLink>
+              <p class="card-text">{{model.description}}</p>
             </div>
           </div>
         </b-col>
@@ -39,7 +38,18 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  layout: 'main'
+  layout: 'main',
+  data() {
+    return {
+      model: {
+        id: 0,
+        name: 'Маньчжурский орех',
+        description: 'Оре́х маньчжу́рский, или Орех думбе́йский, — вид листопадных однодомных' +
+          '                деревьев или кустарников рода Орех семейства Ореховые.',
+        img: 'https://opt-1088093.ssl.1c-bitrix-cdn.ru/upload/iblock/90a/90ac426482b2c0af95162ebac255fe2a.jpg?153373798664980'
+      }
+    }
+  }
 })
 </script>
 
