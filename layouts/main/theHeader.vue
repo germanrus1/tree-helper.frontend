@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div class="mb-4">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Tree Helper</a>
+        <NuxtLink to="/" class="navbar-brand">
+          <span class="bg-success text-white p-1">PLANT</span><span class="bg-primary p-1">helper</span>
+        </NuxtLink>
         <form class="form-inline my-2 my-lg-0" style="width: 100%">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 90%;">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>

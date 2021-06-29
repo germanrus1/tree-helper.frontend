@@ -18,6 +18,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    {
+      src: '~/plugins/vue-lightbox-plugin.js',
+      ssr: false
+    }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -26,7 +30,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -41,7 +45,8 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    'nuxt-lazy-load'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -59,6 +64,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    vendor: ['vue-touch']
   },
 
   proxy: {

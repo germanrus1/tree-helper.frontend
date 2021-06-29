@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-container>
     <div class="row">
       <b-col sm="12" xl="2" md="3">
         <b-form-select v-model="selected" :options="options" size="sm" class="mt-3"></b-form-select>
@@ -11,7 +11,12 @@
         <b-form-select v-model="selected2" :options="options2" size="sm" class="mt-3"></b-form-select>
       </b-col>
     </div>
-  </div>
+    <b-row class="mt-3">
+      <b-col class="justify-content-center d-flex">
+        <b-button variant="primary" pill>Применить</b-button>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
