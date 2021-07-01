@@ -6,7 +6,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <NuxtLink to="/" class="navbar-brand">
-          <span class="bg-success text-white p-1">PLANT</span><span class="bg-primary p-1">helper</span>
+          <span class="btn-lg rounded-0 bg-success text-light p-1">PLANT</span><span class="btn-lg rounded-0 bg-warning p-1 text-dark">helper</span>
         </NuxtLink>
         <form class="form-inline my-2 my-lg-0" style="width: 100%">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 90%;">
