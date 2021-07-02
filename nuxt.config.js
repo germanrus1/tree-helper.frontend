@@ -64,19 +64,28 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    vendor: ['vue-touch']
+    vendor: ['vue-touch'],
+    babel: {
+      compact: true
+    }
   },
 
   proxy: {
     '/api': {
-      target: 'http://tree-helper.ru/',
+      target: 'http://plant-helper.ru/',
       ws: true,
       changeOrigin: true
     },
     '/oauth': {
-      target: 'http://tree-helper.ru/',
+      target: 'http://plant-helper.ru/',
       ws: true,
       changeOrigin: true
     }
+  },
+  env: {
+    /**
+     * dbUri is accessible from both client and server side.
+     */
+    dbUri: process.env.DB_URI
   }
 }

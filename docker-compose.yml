@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  node:
+    build:
+      args:
+        user: helper
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: node-plant-helper
+    container_name: plant-helper-node
+    restart: unless-stopped
+    ports:
+      - "81:3000"
+    networks:
+      - plant-helper
+
+networks:
+  plant-helper:
+    driver: bridge
