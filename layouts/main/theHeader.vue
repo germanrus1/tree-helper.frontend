@@ -14,13 +14,13 @@
         </form>
       </div>
     </nav>
-    <row>
-      <div>
-        <b-nav tabs>
-          <b-nav-item v-for="link in linksRoute" :active="$route.path == link.url"><NuxtLink :to="link.url">{{link.name}}</NuxtLink></b-nav-item>
-        </b-nav>
-      </div>
-    </row>
+    <div>
+      <b-nav tabs>
+        <b-nav-item v-for="(link, index) in linksRoute" :key="index" :active="$route.path == link.url">
+          <NuxtLink :to="link.url"><span>{{link.name}}</span></NuxtLink>
+        </b-nav-item>
+      </b-nav>
+    </div>
     <search-panel></search-panel>
   </div>
 </template>
@@ -28,12 +28,12 @@
 <script>
 export default {
   name: 'TheHeader',
-  data() {
+  data () {
     return {
       linksRoute: [
         { url: '/', name: 'Главная' },
         { url: '/search', name: 'Библиотека' },
-        { url: '/about', name: 'О сайте' },
+        { url: '/about', name: 'О сайте' }
       ]
     }
   }
