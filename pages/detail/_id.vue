@@ -12,7 +12,11 @@
           <custom-light-box :images="model.images"></custom-light-box>
         </div>
         <div class="button-favorite-content">
-          <b-button :variant="buttonFavoriteStatus ? 'primary' : 'secondary'" v-on:click="toggleButtonFavoriteStatus()">
+          <b-button :variant="buttonFavoriteStatus ? 'primary' : 'secondary'" v-on:click="openGallery(1)">
+            На весь экан
+            <b-badge variant="light"><b-icon icon="fullscreen"></b-icon> <span class="sr-only"></span></b-badge>
+          </b-button>
+          <b-button :variant="buttonFavoriteStatus ? 'primary' : 'secondary'" v-on:click="toggleButtonFavorite()">
             В избранное
             <b-badge variant="light">9 <span class="sr-only"></span></b-badge>
           </b-button>
@@ -40,11 +44,10 @@
   </div>
 </template>
 
-<script lang="ts">
-
+<script>
 export default {
   layout: 'main',
-  data() {
+  data () {
     return {
       model: {
         name: 'Маньчжурский орех',
@@ -116,21 +119,16 @@ export default {
 
   methods: {
     openGallery (index = 0) {
-      return index
-      // todo - показывает ошибку! Пофиксить.
-      // (this.$refs.lightbox as Vue).showImage(index)
+      this.$refs.lightbox.showImage(index)
     },
-    toggleButtonFavoriteStatus () {
-      if (this.buttonFavoriteStatus == true) {
+    toggleButtonFavorite () {
+      if (this.buttonFavoriteStatus) {
         if (confirm('Вы уверены, что хотите удалить из избранного?')) {
           this.buttonFavoriteStatus = !this.buttonFavoriteStatus
         }
       } else {
         this.buttonFavoriteStatus = !this.buttonFavoriteStatus
       }
-    },
-    confirmCancelFavorite () {
-
     }
   }
 }
